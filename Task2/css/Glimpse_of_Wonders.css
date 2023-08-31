@@ -1,0 +1,13 @@
+
+
+.grid-container{
+
+  position: fixed; /*cambia este valor a static para ver la diferencia*/
+  width: 1000px;
+  height: 700px;
+  
+  border: solid 2px;
+
+
+}
+
