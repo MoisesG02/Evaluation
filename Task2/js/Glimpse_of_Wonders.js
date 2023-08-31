@@ -1,54 +1,35 @@
+$(document).ready(function api() {
+  fetch('https://dog.ceo/api/breeds/list/all')
+  .then(response => response.json())
+  .then(json => {
+      const doglist = json.message;
+     
+      Object.entries(doglist).forEach(function ([key, value]) {
+          fetch(`https://dog.ceo/api/breed/${key}/images/random`)
+          .then(response => response.json())
+          .then(json => {
 
-$(document).ready(
-function api()  {
+              const dogsImg = json.message;
+  
+              const info_of_Doggie = value.length > 0 ? value[0] : ''; 
 
-    
+              // console.log(dogsImg)
 
-    fetch('https://dog.ceo/api/breeds/list/all')
-    // Exito
-    .then(response => response.json())  
-    .then(json => {
-        const doglist = json.message;
-        
-        Object.keys(doglist).forEach(function(key) {
+              let container = `
+              <div class="cards">
+                  <div class="card">
+                      <div class="card-logo">
+                          <img class="dog-image" src="${dogsImg}">
+                      </div>
+                      <div class="card-text">${key}  ${info_of_Doggie}</div>
+                  </div>
+              </div>
+              `;
 
-            fetch(`https://dog.ceo/api/breed/${key}/images/random`)
-            // Exito
-            .then(response => response.json())
-            .then(json => console.log(json.message))
-
-            console.log('Key : ' + key + ', Value : ' + doglist[key])
-            if(doglist[key] == ""){
-
-                let container = `<div class="container"> ${key} </div>`
-
-                $(container).appendTo( $("#principal_container"));;
-
-            }
-            else{
-
-                for(let i =0;i<doglist[key].length;i++){
-
-                 let container = `<div class="container"> ${doglist[key][i]} </div>`
- 
-                 $(container).appendTo( $("#principal_container"));;
- 
- 
-                }
-               
-            }
-
+              $(container).appendTo($("#principal_container"));
           })
-
-       
-    }
-        
-        )    
-    .catch(err => console.log('Solicitud fallida', err)); 
-
-
-}
-    
-);
-
- 
+          .catch(err => console.log('Error al obtener la imagen', err));
+      });
+  })
+  .catch(err => console.log('Solicitud fallida', err));
+});

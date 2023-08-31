@@ -1,13 +1,83 @@
-
-
-.grid-container{
-
-  position: fixed; /*cambia este valor a static para ver la diferencia*/
-  width: 1000px;
-  height: 700px;
-  
-  border: solid 2px;
-
-
+body {
+  margin: 10px;
+  padding: 0 auto;
+  font-family: sans-serif;
+  overflow: hidden;
 }
+.container-fluid {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 100%;
+  background-color: #00000013;
+  border-radius: 10px;
+}
+
+.header-dog {
+  background: linear-gradient(-20deg, #1f3e47, #01232ccf);
+  color: #fff;
+  height: 40px;
+  border-radius: 8px 8px 0px 0px;
+}
+.container .header-dog .title-dog {
+  position: relative;
+  top: 10px;
+  left: 25px;
+}
+.sub-dogs{
+  margin: 15px;
+}
+.dogs-overflow{
+  overflow: auto;
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+.dogs-overflow {
+  overflow-y: scroll;
+  max-height: 300px;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+}
+.card {
+  width: 120px;
+  height: 140px;
+  margin: 10px 10px 10px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(-20deg, #1f3e47, #01232ccf);
+  transition: transform .5s;
+  cursor: pointer;
+}
+.card-logo {
+  width: 7.2em;
+  height: 6em;
+  margin-top: -2px;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  border-radius: 2;
+  box-shadow: 2px 5px 20px rgba(black, .3);
+}
+.card-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.card:hover {
+  transform: scale(1.1)
+}
+
 
